@@ -10,5 +10,6 @@ import pandas as pd
 
 def pregunta_06():
 
-    tabla = pd.read_csv("files/input/tbl1.tsv", sep="\t")
-    return sorted(tabla["c4"].str.upper().unique().tolist())
+    tbl1 = pd.read_csv("files/input/tbl1.tsv", sep="\t")
+
+    return sorted(tbl1["c4"].str.upper().unique())

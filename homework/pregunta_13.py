@@ -11,7 +11,7 @@ import pandas as pd
 def pregunta_13():
 
 
-    tabla_0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    tabla_2 = pd.read_csv("files/input/tbl2.tsv", sep="\t")
-    tabla = tabla_0.merge(tabla_2, on="c0")
-    return tabla.groupby("c1")["c5b"].sum()
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    tbl2 = pd.read_csv("files/input/tbl2.tsv", sep="\t")
+
+    return tbl0.merge(tbl2, on="c0").groupby("c1")["c5b"].sum()

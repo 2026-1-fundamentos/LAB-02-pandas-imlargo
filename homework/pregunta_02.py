@@ -10,5 +10,6 @@ import pandas as pd
 
 def pregunta_02():
 
-    tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    return tabla.shape[1]
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    return len(tbl0.columns)

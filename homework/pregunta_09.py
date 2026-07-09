@@ -10,6 +10,8 @@ import pandas as pd
 
 def pregunta_09():
 
-    tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    tabla["year"] = tabla["c3"].str[:4]
-    return tabla
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    tbl0["year"] = tbl0["c3"].str[0:4]
+
+    return tbl0

@@ -10,9 +10,12 @@ import pandas as pd
 
 def pregunta_10():
 
-    tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    resultado = tabla.groupby("c1", sort=True)["c2"].apply(
-        lambda serie: ":".join(serie.astype(str).tolist())
+
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    return (
+        tbl0.sort_values(["c1", "c2"])
+        .astype({"c2": str})
+        .groupby("c1")
+        .agg({"c2": ":".join})
     )
-    resultado.index.name = "_c1"
-    return resultado.to_frame()

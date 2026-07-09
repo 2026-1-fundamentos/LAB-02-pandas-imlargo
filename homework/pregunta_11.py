@@ -9,6 +9,8 @@ import pandas as pd
 
 
 def pregunta_11():
-     tabla = pd.read_csv("files/input/tbl1.tsv", sep="\t")
-     tabla["c4"] = tabla["c4"].str.split(",").apply(lambda valores: ",".join(valores))
-     return tabla[["c0", "c4"]]
+    tbl1 = pd.read_csv("files/input/tbl1.tsv", sep="\t")
+
+    return (
+        tbl1.sort_values(["c0", "c4"]).groupby("c0").agg({"c4": ",".join}).reset_index()
+    )

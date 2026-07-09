@@ -10,6 +10,12 @@ import pandas as pd
 
 def pregunta_12():
 
-     tabla = pd.read_csv("files/input/tbl2.tsv", sep="\t")
-     tabla["c5"] = tabla["c5a"].astype(str) + ":" + tabla["c5b"].astype(str)
-     return tabla[["c0", "c5"]]
+    tbl2 = pd.read_csv("files/input/tbl2.tsv", sep="\t")
+
+    return (
+        tbl2.assign(c5=tbl2["c5a"] + ":" + tbl2["c5b"].astype(str))
+        .sort_values(["c0", "c5"])
+        .groupby("c0")
+        .agg({"c5": ",".join})
+        .reset_index()
+    )

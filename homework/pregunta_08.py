@@ -10,6 +10,8 @@ import pandas as pd
 
 def pregunta_08():
 
-     tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-     tabla["suma"] = tabla["c0"] + tabla["c2"]
-     return tabla
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    tbl0["suma"] = tbl0["c0"] + tbl0["c2"]
+
+    return tbl0

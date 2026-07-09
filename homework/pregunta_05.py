@@ -10,5 +10,6 @@ import pandas as pd
 
 def pregunta_05():
 
-    tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    return tabla.groupby("c1")["c2"].max()
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    return tbl0.groupby("c1")["c2"].max()

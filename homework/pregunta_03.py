@@ -10,6 +10,6 @@ import pandas as pd
 
 def pregunta_03():
 
+    tbl0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
 
-    tabla = pd.read_csv("files/input/tbl0.tsv", sep="\t")
-    return tabla["c1"].value_counts().sort_index()
+    return tbl0["c1"].value_counts().sort_index()
